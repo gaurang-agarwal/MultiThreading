@@ -84,7 +84,6 @@ class Consumer implements Runnable{
 			for(String file:fileList){
 				fileName.add(file);
 			}
-			
 			}
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
