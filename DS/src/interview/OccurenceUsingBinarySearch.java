@@ -15,7 +15,8 @@ public class OccurenceUsingBinarySearch {
 		int start=0;
 		int end=arr.length;
 		int occurence=-1;
-		while(start<end){
+		while(start<end)
+		{
 			int mid=(start+end)/2;
 			System.out.println("Start : "+start+" End: "+end+" Mid::"+mid +" arr[mid]:"+arr[mid]);
 			if(arr[mid]==n)
