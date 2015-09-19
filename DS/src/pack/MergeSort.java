@@ -7,8 +7,8 @@ public class MergeSort {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		//int arr[] ={4,5,6,7,8,3,21,2,3,4,1,12,12,14,12,12,1,2,45,1,21,5,1};
-		int arr[] ={2,4,1,6,8,5,3,7};
+		int arr[] ={4,5,6,7,8,3,21,2,3,4,1,12,12,14,12,12,1,2,45,1,21,5,1};
+		//int arr[] ={2,4,1,6,8,5,3,7};
 		System.out.println(Arrays.toString(arr));		
 			new MergeSort().sort(arr);
 			System.out.println(Arrays.toString(arr));
@@ -29,8 +29,8 @@ if(arr.length>1){
 	for(int i=mid;i<arr.length;i++){
 		right[i-mid]=arr[i];
 	}
-	sort(left);
 	sort(right);
+	sort(left);
 	merge(arr, left, right);
 	
 }
