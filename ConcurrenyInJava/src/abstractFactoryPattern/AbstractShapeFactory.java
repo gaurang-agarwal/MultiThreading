@@ -2,6 +2,6 @@ package abstractFactoryPattern;
 
 public abstract class AbstractShapeFactory {
 
-	abstract public Shape getInstance();
+	abstract public Shape getShape();
 	
 }

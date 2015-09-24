@@ -1,6 +1,8 @@
 package abstractFactoryPattern;
-
-public class Rectangle implements Shape {
+/*Class is not made public so that it can not be accessed outside the package directly, 
+ * but only through factory class
+ */
+class Rectangle implements Shape {
 
 	@Override
 	public void draw() {
