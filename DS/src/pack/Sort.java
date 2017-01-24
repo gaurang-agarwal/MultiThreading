@@ -8,14 +8,38 @@ public class Sort {
 		// TODO Auto-generated method stub
 
 		
-		int arr [] = {5,3,1,2,3,4,10,6,0};
+		int arr [] = {5,3,1,5,1,2,3,2,3,4,10,6,0};
 		//new Sort().QuickSort(arr, 0, arr.length-1); 
-		new Sort().InsertionSort(arr);
 		System.out.println(Arrays.toString(arr));
+		new Sort().CountSort(arr);
 		
 	}
 
 	
+	
+	void CountSort(int arr[])
+	{
+		int max=10;
+		int countArr[] = new int[max+1];
+		for(int i=0;i<arr.length;i++)
+		{
+			countArr[arr[i]]=countArr[arr[i]]+1;
+		}
+		//System.out.println("Count Arr : "+Arrays.toString(countArr));
+		for(int i=1;i<countArr.length;i++)
+		{
+			countArr[i]=countArr[i]+countArr[i-1];
+		}
+		//System.out.println("Count Arr : "+Arrays.toString(countArr));
+		int output[] = new int[arr.length];
+		for(int i=0;i<arr.length;i++)
+		{
+			output[countArr[arr[i]]-1] = arr[i];
+	        --countArr[arr[i]];
+		}
+		System.out.println(""+Arrays.toString(output));
+		
+	}
 	void InsertionSort(int arr[])
 	{
 		for(int i=1;i<arr.length;i++)
