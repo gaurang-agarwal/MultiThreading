@@ -9,9 +9,6 @@ public class AVLTreeTest {
 
 		AVLTree tree= getTree();
 		tree.printInOrderTraversal();
-		
-		
-		
 }
 	/*					5
 	 * 				   / \	
