@@ -9,8 +9,8 @@ public class Sort {
 
 		
 		int arr [] = {5,3,1,5,1,2,3,2,3,4,10,6,0};
+		new Sort().heapSort(arr);
 		//new Sort().QuickSort(arr, 0, arr.length-1); 
-		System.out.println(Arrays.toString(arr));
 		new Sort().CountSort(arr);
 		
 	}
@@ -153,4 +153,80 @@ public class Sort {
 		}
 		
 	}
+	
+	
+	public int [] heapSort(int arr[])
+	{
+		int [] heap = buildMaxHeap(arr);
+		
+		int resultArray [] = new int [heap.length];
+		int size=heap.length;
+		for(int i=0;i<heap.length;i++)
+		{
+			size--;
+			resultArray[size]=heap[0];
+			heap[0]=Integer.MIN_VALUE;
+			moveDown(heap, heap.length, 0);
+		}
+		System.out.println(Arrays.toString(resultArray));
+		
+		return resultArray;
+	}
+	
+	
+	private int [] buildMaxHeap(int arr[])
+	{
+		int heap[] = new int[arr.length];
+		for(int i=0;i<arr.length;i++)
+		{
+			heap[i]=arr[i];
+			moveUp(heap, i);
+			
+		}
+		return heap;
+	}
+	
+	private void moveUp(int arr[],int pos)
+	{
+		int parent = getParent(pos);
+		if(pos > 0 && arr[getParent(pos)] < arr[pos])
+		{
+			swap(arr, pos, parent);
+			moveUp(arr, parent);
+		}
+	}
+	
+	private void moveDown(int arr[],int size,int pos)
+	{
+		int i = pos;
+		if(getLeft(pos) < size &&  arr[getLeft(pos)] > arr[pos] )
+		{
+			i = getLeft(pos);
+		}
+		if(getRight(pos) < size &&  arr[getRight(pos)] > arr[i] )
+		{
+			i = getRight(pos);
+		}
+		if(i!=pos)
+		{
+			swap(arr, i, pos);
+			moveDown(arr, size, i);
+		}
+		
+	}
+	
+	private int getLeft(int i)
+	{
+		return 2*i+1;
+	}
+	private int getRight(int i)
+	{
+		return 2*i+2;
+	}
+	
+	private int getParent(int i)
+	{
+		return (i-1)/2;
+	}
+	
 }
