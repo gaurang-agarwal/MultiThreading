@@ -11,7 +11,7 @@ public class Sort {
 		int arr [] = {5,3,1,5,1,2,3,2,3,4,10,6,0};
 		new Sort().heapSort(arr);
 		//new Sort().QuickSort(arr, 0, arr.length-1); 
-		new Sort().CountSort(arr);
+		//new Sort().CountSort(arr);
 		
 	}
 
@@ -155,47 +155,19 @@ public class Sort {
 	}
 	
 	
-	public int [] heapSort(int arr[])
+	public void heapSort(int arr[])
 	{
-		int [] heap = buildMaxHeap(arr);
-		
-		int resultArray [] = new int [heap.length];
-		int size=heap.length;
-		for(int i=0;i<heap.length;i++)
+		for(int i=arr.length/2;i>=0;i--)
 		{
-			size--;
-			resultArray[size]=heap[0];
-			heap[0]=Integer.MIN_VALUE;
-			moveDown(heap, heap.length, 0);
+			moveDown(arr, arr.length, i);
 		}
-		System.out.println(Arrays.toString(resultArray));
-		
-		return resultArray;
-	}
-	
-	
-	private int [] buildMaxHeap(int arr[])
-	{
-		int heap[] = new int[arr.length];
-		for(int i=0;i<arr.length;i++)
+		for(int i=arr.length-1;i>=0;i--)
 		{
-			heap[i]=arr[i];
-			moveUp(heap, i);
-			
+			swap(arr, 0, i);
+			moveDown(arr, i, 0);
 		}
-		return heap;
+		System.out.println("final"+Arrays.toString(arr));
 	}
-	
-	private void moveUp(int arr[],int pos)
-	{
-		int parent = getParent(pos);
-		if(pos > 0 && arr[getParent(pos)] < arr[pos])
-		{
-			swap(arr, pos, parent);
-			moveUp(arr, parent);
-		}
-	}
-	
 	private void moveDown(int arr[],int size,int pos)
 	{
 		int i = pos;
@@ -224,9 +196,5 @@ public class Sort {
 		return 2*i+2;
 	}
 	
-	private int getParent(int i)
-	{
-		return (i-1)/2;
-	}
 	
 }
