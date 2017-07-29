@@ -6,34 +6,31 @@ public class TrapRainWater {
 		// TODO Auto-generated method stub
 
 		int arr[] = new int []{3,0,0,2,0,4};
-		int largest = arr[0];
-		int sum=0;
-		int zeroCount=0;
-		for(int i=1;i<arr.length;i++)
-		{
-			while(i<arr.length &&  largest>=arr[i])
-			{
-				if(arr[i]!=0)
-				{
-					sum = sum+largest-arr[i];
-					sum=sum+largest*zeroCount;
-					zeroCount=0;
-				}
-				else
-				{
-					zeroCount++;
-				}
-				i++;
-			}
-			if(i<arr.length)
-			{
-			sum=sum+largest*zeroCount;
-			largest=arr[i];
-			zeroCount=0;
-			}
-		}
-		System.out.println(sum);
-		
-	}
+
+	    int low=0, high=arr.length-1, left_max=0, right_max=0,water=0;
+	    while(low<high)
+	    {
+	        if(arr[low]<arr[high])
+	        {
+	            if(arr[low]>left_max)
+	             left_max=arr[low];
+	            else
+	            {
+	                water+=left_max-arr[low];
+	            }
+	            low++;
+	        }
+	        else
+	        {
+	            if(arr[high]>right_max)
+	             right_max=arr[high];
+	            else
+	             water+=right_max-arr[high];
+	           high--;  
+	        }
+
+	    }
+	    System.out.println(water);
+	    }
 
 }
