@@ -5,7 +5,7 @@ public class SubArrayWithGivenSum {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		int arr []= new int []{ 1,2,3,4,5,6,7,8,9,10}; 
-		int finalsum =100;
+		int finalsum =10;
 		int currentSum=arr[0];
 		int start=0;
 		int end =0;
