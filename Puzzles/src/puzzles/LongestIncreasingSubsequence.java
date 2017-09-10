@@ -1,6 +1,5 @@
 package puzzles;
 
-import java.util.Arrays;
 //http://www.geeksforgeeks.org/longest-increasing-subsequence/
 //https://www.youtube.com/watch?v=SZByPn0deMY&index=2&list=PLlhDxqlV_-vkak9feCSrnjlrnzzzcopSG
 //https://www.youtube.com/watch?v=Ns4LCeeOFS4
@@ -26,7 +25,7 @@ public class LongestIncreasingSubsequence {
 			for(int j=0;j<i;j++)
 			{
 				if(arr[i]>arr[j] && list[i] < list[j]+1)
-					{	
+					{		
 						list[i] = list[j]+1;
 						lisPath[i] =  lisPath[j]+arr[i]+" ";
 					}
@@ -37,9 +36,8 @@ public class LongestIncreasingSubsequence {
 				maxIndex=i;
 			}
 		}
-		System.out.println(Arrays.toString(lisPath));
-		System.out.println(maxIndex);
-	System.out.println(lisPath[maxIndex]);	
+		System.out.println(lisPath[maxIndex]);
+		System.out.println(list[maxIndex]);
 		
 	}
 

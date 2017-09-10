@@ -1,5 +1,5 @@
 package puzzles;
-
+//http://www.geeksforgeeks.org/converting-decimal-number-lying-between-1-to-3999-to-roman-numerals/
 public class IntegerToRoman {
 
 	
@@ -22,7 +22,7 @@ public class IntegerToRoman {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		int num=99;
+		int num=3949;
 		int times;
 			for(int i=table.length-1;i>=0;i--)
 			{
